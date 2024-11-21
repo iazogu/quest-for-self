@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Daily Self-Discovery Questions</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+max-width: 800px;
+margin: 0 auto;
+padding: 20px;
+line-height: 1.6;
+}
+#question-container {
+background-color: #f4f4f4;
+border-radius: 10px;
+padding: 30px;
+text-align: center;
+box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+#daily-question {
+font-size: 24px;
+margin-bottom: 20px;
+}
+#category {
+font-weight: bold;
+color: #666;
+margin-bottom: 15px;
+}
+button {
+background-color: #007bff;
+color: white;
+border: none;
+padding: 10px 20px;
+border-radius: 5px;
+cursor: pointer;
+}
+</style>
+</head>
+<body>
+<div id="question-container">
+<div id="category"></div>
+<div id="daily-question"></div>
+<button onclick="generateQuestion()">New Question</button>
+
+</div>
+<script>
+const categories = {
+"Self": [
+"List all the qualities you love about being human",
+"List your favorite talents and why they matter",
+"List the qualities you like least about yourself"
+],
+"Daily Life": [
+"List your Sunday rituals",
+"List things you hide when friends visit",
+"List your morning routine step by step"
+],
+"Business": [
+"List occupations you find undesirable",
+"List people who owe you money",
+"List changes you'd make if you owned your company"
+],
+"Change": [
+"List activities you would do if you weren't afraid",
+"List ways you've changed for the better",
+"List major changes you need to make in life"
+],
+"Growing Up": [
+"List childhood memories",
+"List experiences that shaped you",
+"List teachers who changed your life"
+],
+"Women": [
+"List traits required in a partner",
+"List relationship problems you've experienced",
+"List reasons for being single"
+],
+"Greater Truths": [
+"List close encounters with death",
+"List major betrayals",
+"List biggest life turning points"
+],
+"Culture": [
+"List movies you'd rewrite",
+"List cultural spots that moved you",
+"List patriotic gestures you've made"
+],
+
+"Health": [
+"List ways you treat a cold",
+"List habits you've successfully kicked",
+"List signs of aging you see"
+],
+"Imagination": [
+"List what you'd do if you were a billionaire",
+"List secrets of the universe you'd uncover",
+"List people you'd bring back from the past"
+]
+};
+function generateQuestion() {
+const categoryNames = Object.keys(categories);
+const randomCategory = categoryNames[Math.floor(Math.random() *
+categoryNames.length)];
+const categoryQuestions = categories[randomCategory];
+const randomQuestion = categoryQuestions[Math.floor(Math.random() *
+categoryQuestions.length)];
+document.getElementById('category').textContent = `Category: ${randomCategory}`;
+document.getElementById('daily-question').textContent = randomQuestion;
+}
+// Generate first question on page load
+generateQuestion();
+</script>
+</body>
+</html>
